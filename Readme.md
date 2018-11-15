@@ -1,3 +1,10 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Form1.cs](./CS/DXApplication9/Form1.cs) (VB: [Form1.vb](./VB/DXApplication9/Form1.vb))
+* [MyRichEditControl.cs](./CS/DXApplication9/MyRichEditControl.cs) (VB: [MyRichEditControl.vb](./VB/DXApplication9/MyRichEditControl.vb))
+* [Program.cs](./CS/DXApplication9/Program.cs) (VB: [Program.vb](./VB/DXApplication9/Program.vb))
+<!-- default file list end -->
 # How to implement the basic idea of the MS Office Word "Format Painter" for RichEditControl
 
 
