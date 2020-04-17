@@ -27,6 +27,7 @@ using DevExpress.XtraRichEdit.Internal;
 using DevExpress.XtraRichEdit.Mouse;
 using DevExpress.XtraRichEdit.Layout;
 using System.ComponentModel;
+using DevExpress.Portable.Input;
 
 namespace DXApplication9
 {
@@ -72,7 +73,7 @@ namespace DXApplication9
             
         }
 
-        public override DevExpress.XtraRichEdit.Utils.RichEditCursor Calculate(RichEditHitTestResultCore hitTestResult, Point physicalPoint)
+        public override IPortableCursor Calculate(RichEditHitTestResultCore hitTestResult, Point physicalPoint)
         {
 
             if ((View.Control as MyRichEditControl).FormatCalculatorEnabled)

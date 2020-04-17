@@ -27,6 +27,7 @@ Imports DevExpress.XtraRichEdit.Internal
 Imports DevExpress.XtraRichEdit.Mouse
 Imports DevExpress.XtraRichEdit.Layout
 Imports System.ComponentModel
+Imports DevExpress.Portable.Input
 
 Namespace DXApplication9
     Public Class MyRichEditControl
@@ -70,7 +71,7 @@ Namespace DXApplication9
 
         End Sub
 
-        Public Overrides Function Calculate(ByVal hitTestResult As RichEditHitTestResultCore, ByVal physicalPoint As Point) As DevExpress.XtraRichEdit.Utils.RichEditCursor
+        Public Overrides Function Calculate(ByVal hitTestResult As RichEditHitTestResultCore, ByVal physicalPoint As Point) As IPortableCursor
 
             If (TryCast(View.Control, MyRichEditControl)).FormatCalculatorEnabled Then
                 Return DevExpress.XtraRichEdit.Utils.RichEditCursors.Hand
