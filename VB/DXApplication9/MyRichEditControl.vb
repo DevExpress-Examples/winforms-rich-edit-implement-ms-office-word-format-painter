@@ -30,55 +30,55 @@ Imports System.ComponentModel
 Imports DevExpress.Portable.Input
 
 Namespace DXApplication9
-    Public Class MyRichEditControl
-        Inherits RichEditControl
+	Public Class MyRichEditControl
+		Inherits RichEditControl
 
-        Protected Overrides Function CreateInnerControl() As InnerRichEditControl
-            Return New MyInnerControl(Me)
-        End Function
+		Protected Overrides Function CreateInnerControl() As InnerRichEditControl
+			Return New MyInnerControl(Me)
+		End Function
 
-        ' Fields...
-        Private _FormatCalculatorEnabled As Boolean
-        <DefaultValue(False)> _
-        Public Property FormatCalculatorEnabled() As Boolean
-            Get
-                Return _FormatCalculatorEnabled
-            End Get
-            Set(ByVal value As Boolean)
-                _FormatCalculatorEnabled = value
-            End Set
-        End Property
+		' Fields...
+		Private _FormatCalculatorEnabled As Boolean
+		<DefaultValue(False)>
+		Public Property FormatCalculatorEnabled() As Boolean
+			Get
+				Return _FormatCalculatorEnabled
+			End Get
+			Set(ByVal value As Boolean)
+				_FormatCalculatorEnabled = value
+			End Set
+		End Property
 
-    End Class
+	End Class
 
-    Public Class MyInnerControl
-        Inherits InnerRichEditControl
+	Public Class MyInnerControl
+		Inherits InnerRichEditControl
 
-        Public Sub New(ByVal owner As IInnerRichEditControlOwner)
-            MyBase.New(owner)
-        End Sub
+		Public Sub New(ByVal owner As IInnerRichEditControlOwner)
+			MyBase.New(owner)
+		End Sub
 
 
-        Protected Overrides Function CreateMouseCursorCalculator() As DevExpress.XtraRichEdit.Mouse.MouseCursorCalculator
-            Return New MyMouseCursorCalculator(ActiveView)
-        End Function
-    End Class
-    Public Class MyMouseCursorCalculator
-        Inherits MouseCursorCalculator
+		Protected Overrides Function CreateMouseCursorCalculator() As DevExpress.XtraRichEdit.Mouse.MouseCursorCalculator
+			Return New MyMouseCursorCalculator(ActiveView)
+		End Function
+	End Class
+	Public Class MyMouseCursorCalculator
+		Inherits MouseCursorCalculator
 
-        Public Sub New(ByVal view As RichEditView)
-            MyBase.New(view)
+		Public Sub New(ByVal view As RichEditView)
+			MyBase.New(view)
 
-        End Sub
+		End Sub
 
-        Public Overrides Function Calculate(ByVal hitTestResult As RichEditHitTestResultCore, ByVal physicalPoint As Point) As IPortableCursor
+		Public Overrides Function Calculate(ByVal hitTestResult As RichEditHitTestResultCore, ByVal physicalPoint As Point) As IPortableCursor
 
-            If (TryCast(View.Control, MyRichEditControl)).FormatCalculatorEnabled Then
-                Return DevExpress.XtraRichEdit.Utils.RichEditCursors.Hand
-            End If
+			If (TryCast(View.Control, MyRichEditControl)).FormatCalculatorEnabled Then
+				Return DevExpress.XtraRichEdit.Utils.RichEditCursors.Hand
+			End If
 
-            Return MyBase.Calculate(hitTestResult, physicalPoint)
-        End Function
-    End Class
+			Return MyBase.Calculate(hitTestResult, physicalPoint)
+		End Function
+	End Class
 
 End Namespace
